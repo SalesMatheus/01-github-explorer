@@ -1,11 +1,11 @@
 import { RepositoryList } from './components/RepositoryList';
-
-import './styles/global.scss';
+import { GlobalStyle } from './styles/global';
 
 export function App(){
     return (
         <>
             <RepositoryList />
+            <GlobalStyle />
         </>
     )
 }
