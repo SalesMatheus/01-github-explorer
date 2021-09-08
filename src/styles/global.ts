@@ -6,13 +6,11 @@ export const GlobalStyle = createGlobalStyle`
     * {
         margin: 0;
         padding: 0;
-        outline: 0;
         box-sizing: border-box;
     }
 
     body {
         background: #191920 url(${backgroundSvg}) no-repeat center top;
-        -webkit-font-smoothing: antialiased;
     }
 
     body, input, button {
@@ -21,10 +19,11 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     #root {
-        max-width: 1020px;
-        margin: 0 auto;
-        padding: 0 20px 50px;
-    }
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        padding: 12px;
+  }
 
     button {
         cursor: pointer;

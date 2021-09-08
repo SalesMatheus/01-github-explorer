@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 import { RepositoryItem } from "../RepositoryItem";
 import { api } from "../../services/api";
+import { FaArrowRight, FaGithub } from 'react-icons/fa';
 
-import { Container, IconGithub, IconSearch} from "./styles";
+import { Container, SearchContainer} from "./styles";
 
 interface Repository {
     id: number;
@@ -15,32 +16,34 @@ export function RepositoryList() {
     const [repositories, setRepositories] = useState<Repository[]>([]);
     const [searchRepository, setSearchRepository] = useState('rocketseat-education');
 
-    useEffect(() => {
-        const fetchPosts = async () => {
-            await api.get(`users/${searchRepository}/repos`)
-            .then(response => setRepositories(response.data))
-        }
+    // useEffect(() => {
+    //     const fetchPosts = async () => {
+    //         await api.get(`users/${searchRepository}/repos`)
+    //         .then(response => setRepositories(response.data))
+    //     }
 
-        fetchPosts();
-    }, []);
+    //     fetchPosts();
+    // }, []);
 
     return(
         <Container>
-            <IconGithub />
-            <h1>Lista de repositórios</h1>
-            <input 
-                placeholder="Pesquisar repositório" 
-                onChange={event => setSearchRepository(event.target.value)}
-            />
-            {/* <button type="submit">
-                <IconSearch />
-            </button> */}
-
-            <ul>
-                {repositories.map(repository => {
-                    return <RepositoryItem key={repository.id} repository={repository} />
-                })}
-            </ul>
+            <FaGithub />
+            <SearchContainer>
+                <input
+                    type="text"
+                    placeholder="Github username"
+                />
+                <button type="submit">
+                    <FaArrowRight />
+                </button>
+            </SearchContainer>
+            {repositories.map(repository => {
+                return(
+                    <tr>
+                        <RepositoryItem key={repository.id} repository={repository} />
+                    </tr>
+                )
+            })}
         </Container>
     );
 }
