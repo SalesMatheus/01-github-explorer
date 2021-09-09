@@ -1,11 +1,16 @@
 import styled from 'styled-components';
 
 export const Container = styled.main`
-    margin: auto;
+
+  div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
     max-width: 1120px;
     margin: 0 auto;
-    padding: 2.5rem 1rem;
+    padding: 6rem 1rem;
 
     h1 {
         margin-bottom:  16px;
@@ -33,7 +38,6 @@ export const Container = styled.main`
 
     svg {
       fill: white;
-      margin: auto;
       width: 15rem;
       height: 15rem;
     }
@@ -41,6 +45,10 @@ export const Container = styled.main`
 `;
 
 export const SearchContainer = styled.form`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   margin: auto;
   width: 100%;
   max-width: 600px;
@@ -49,10 +57,7 @@ export const SearchContainer = styled.form`
   border-radius: 5rem;
   background: #2D2E33;
 
-  gap: 10px;
-  display: grid;
-  grid-template-columns: 1fr auto;
-  justify-content: space-between;
+
   input {
     flex: 1;
     background: none;

@@ -27,7 +27,9 @@ export function RepositoryList() {
 
     return(
         <Container>
-            <FaGithub />
+            <div>
+                <FaGithub />
+            </div>
             <SearchContainer>
                 <input
                     type="text"
